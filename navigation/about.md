@@ -61,7 +61,6 @@ Flags are made using Wikipedia images
     var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
     var living_in_the_world = [
         {"flag": "0/01/Flag_of_California.svg", "greeting": "Hey", "description": "California - forever"},
-        [[File:Flag of Minnesota as Paths.svg|Flag_of_Minnesota_as_Paths]]
 
     ];
 
