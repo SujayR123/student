@@ -61,6 +61,7 @@ Flags are made using Wikipedia images
     var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
     var living_in_the_world = [
         {"flag": "0/01/Flag_of_California.svg", "description": "California - forever"},
+        {"flag": "4/41/Flag_of_Minnesota.svg", "description": "Minnesota - forever"}
 
     ];
 
