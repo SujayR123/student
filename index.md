@@ -5,7 +5,7 @@ hide: true
 show_reading_time: false
 ---
 
-Hi! My name is [Sujay Raghavan]
+Hi! My name is Sujay Raghavan
 
 ### Development Environment
 
