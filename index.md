@@ -52,4 +52,4 @@ Hi! My name is Sujay Raghavan
 
 > Feel free to reach out if you'd like to collaborate or learn more about our work.
 
-<p style="color: #2A7DB1;">Gmail: <a href="sjrsujay@gmail.com" style="color: #2A7DB1; text-decoration: underline;">Socials</a></p>
+<p style="color: #2A7DB1;">Gmail: sjrsujay@gmail.com <a href="gmail.com" style="color: #2A7DB1; text-decoration: underline;">Socials</a></p>
