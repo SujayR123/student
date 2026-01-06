@@ -14,12 +14,9 @@ Flags are made using Wikipedia images
 </comment>
 
 <style>
-    /* Style looks pretty compact, 
-       - grid-container and grid-item are referenced the code 
-    */
     .grid-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Dynamic columns */
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 10px;
     }
     .grid-item {
@@ -27,11 +24,11 @@ Flags are made using Wikipedia images
     }
     .grid-item img {
         width: 100%;
-        height: 100px; /* Fixed height for uniformity */
-        object-fit: contain; /* Ensure the image fits within the fixed height */
+        height: 120px;
+        object-fit: cover;
     }
     .grid-item p {
-        margin: 5px 0; /* Add some margin for spacing */
+        margin: 5px 0;
     }
 
     .image-gallery {
@@ -39,7 +36,7 @@ Flags are made using Wikipedia images
         flex-wrap: nowrap;
         overflow-x: auto;
         gap: 10px;
-        }
+    }
 
     .image-gallery img {
         max-height: 150px;
@@ -48,56 +45,95 @@ Flags are made using Wikipedia images
     }
 </style>
 
-<!-- This grid_container class is used by CSS styling and the id is used by JavaScript connection -->
-<div class="grid-container" id="grid_container">
-    <!-- content will be added here by JavaScript -->
-</div>
+<!-- FLAGS GRID -->
+<div class="grid-container" id="grid_container"></div>
+
+<!-- SONGS GRID -->
+<h2>My Favorite Songs</h2>
+<div class="grid-container" id="songs_grid_container"></div>
 
 <script>
-    // 1. Make a connection to the HTML container defined in the HTML div
-    var container = document.getElementById("grid_container"); // This container connects to the HTML div
+    // ===============================
+    // FLAGS GRID
+    // ===============================
+    var container = document.getElementById("grid_container");
 
-    // 2. Define a JavaScript object for our http source and our data rows for the Living in the World grid
     var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
     var living_in_the_world = [
         {"flag": "0/01/Flag_of_California.svg", "description": "California - forever"},
         {"flag": "b/b9/Flag_of_Minnesota.svg", "description": "Minnesota - Born"}
-
     ];
 
-    // 3a. Consider how to update style count for size of container
-    // The grid-template-columns has been defined as dynamic with auto-fill and minmax
-
-    // 3b. Build grid items inside of our container for each row of data
     for (const location of living_in_the_world) {
-        // Create a "div" with "class grid-item" for each row
         var gridItem = document.createElement("div");
-        gridItem.className = "grid-item";  // This class name connects the gridItem to the CSS style elements
-        // Add "img" HTML tag for the flag
+        gridItem.className = "grid-item";
+
         var img = document.createElement("img");
-        img.src = http_source + location.flag; // concatenate the source and flag
-        img.alt = location.flag + " Flag"; // add alt text for accessibility
+        img.src = http_source + location.flag;
+        img.alt = location.description + " Flag";
 
-        // Add "p" HTML tag for the description
         var description = document.createElement("p");
-        description.textContent = location.description; // extract the description
+        description.textContent = location.description;
 
-        // Add "p" HTML tag for the greeting
-        var greeting = document.createElement("p");
-        greeting.textContent = location.greeting;  // extract the greeting
-
-        // Append img and p HTML tags to the grid item DIV
         gridItem.appendChild(img);
         gridItem.appendChild(description);
-        gridItem.appendChild(greeting);
-
-        // Append the grid item DIV to the container DIV
         container.appendChild(gridItem);
+    }
+
+    // ===============================
+    // SONGS GRID (WIKIMEDIA COMMONS PHOTOS)
+    // ===============================
+    var songsContainer = document.getElementById("songs_grid_container");
+
+    var favorite_songs = [
+        {
+            image: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Yeat.png",
+            title: "Breathe",
+            artist: "Yeat"
+        },
+        {
+            image: "https://upload.wikimedia.org/wikipedia/commons/1/14/Travis_Scott_-_Openair_Frauenfeld_2019_08.jpg",
+            title: "SICKO MODE",
+            artist: "Travis Scott"
+        },
+        {
+            image: "https://upload.wikimedia.org/wikipedia/commons/1/14/Travis_Scott_-_Openair_Frauenfeld_2019_08.jpg",
+            title: "Butterfly Effect",
+            artist: "Travis Scott"
+        },
+        {
+            image: "https://upload.wikimedia.org/wikipedia/commons/9/93/Don_Toliver_2017.png",
+            title: "No Pole",
+            artist: "Don Toliver"
+        }
+    ];
+
+    for (const song of favorite_songs) {
+        var gridItem = document.createElement("div");
+        gridItem.className = "grid-item";
+
+        var img = document.createElement("img");
+        img.src = song.image;
+        img.alt = song.artist + " photo";
+
+        var title = document.createElement("p");
+        title.textContent = song.title;
+        title.style.fontWeight = "bold";
+
+        var artist = document.createElement("p");
+        artist.textContent = song.artist;
+        artist.style.fontStyle = "italic";
+        artist.style.opacity = "0.7";
+
+        gridItem.appendChild(img);
+        gridItem.appendChild(title);
+        gridItem.appendChild(artist);
+
+        songsContainer.appendChild(gridItem);
     }
 </script>
 
 ### Journey through Life
-
 
 - 🏫 Went to Montery Ridge Elementry School
 - 🏫 Went to Oak Valley Middle School
@@ -109,26 +145,21 @@ Flags are made using Wikipedia images
 
 ### Culture, Family, and Fun
 
-Everything for me, as for many others, revolves around family and faith.
-
-- My mother told me that I was Danish, English. and Irish, here is my researched [family tree]({{site.baseurl}}/images/about/familytree.png)
-- My family is pretty big as I have been married twice, my 1st wife passed away.  We have had 5 kids, 4 adopted by me, 1 biological.  Plus, there are three grandkids.  My name to my grandkids is Abuilito.
-- The gallery of pics has some of my family, fun, culture and faith memories.
-
 <comment>
 Gallery of Pics, scroll to the right for more ...
 </comment>
+
 <div class="image-gallery">
-  <img src="{{site.baseurl}}/images/about/missionary.jpg" alt="Image 1">
-  <img src="{{site.baseurl}}/images/about/john_tamara.jpg" alt="Image 2">
-  <img src="{{site.baseurl}}/images/about/tamara_fam.jpg" alt="Image 3">
-  <img src="{{site.baseurl}}/images/about/surf.jpg" alt="Image 4">
-  <img src="{{site.baseurl}}/images/about/john_lora.jpg" alt="Image 5">
-  <img src="{{site.baseurl}}/images/about/lora_fam.jpg" alt="Image 6">
-  <img src="{{site.baseurl}}/images/about/lora_fam2.jpg" alt="Image 7">
-  <img src="{{site.baseurl}}/images/about/pj_party.jpg" alt="Image 8">
-  <img src="{{site.baseurl}}/images/about/trent_family.png" alt="Image 9">
-  <img src="{{site.baseurl}}/images/about/claire.jpg" alt="Image 10">
-  <img src="{{site.baseurl}}/images/about/grandkids.jpg" alt="Image 11">
-  <img src="{{site.baseurl}}/images/about/farm.jpg" alt="Image 12">
+  <img src="{{site.baseurl}}/images/about/missionary.jpg">
+  <img src="{{site.baseurl}}/images/about/john_tamara.jpg">
+  <img src="{{site.baseurl}}/images/about/tamara_fam.jpg">
+  <img src="{{site.baseurl}}/images/about/surf.jpg">
+  <img src="{{site.baseurl}}/images/about/john_lora.jpg">
+  <img src="{{site.baseurl}}/images/about/lora_fam.jpg">
+  <img src="{{site.baseurl}}/images/about/lora_fam2.jpg">
+  <img src="{{site.baseurl}}/images/about/pj_party.jpg">
+  <img src="{{site.baseurl}}/images/about/trent_family.png">
+  <img src="{{site.baseurl}}/images/about/claire.jpg">
+  <img src="{{site.baseurl}}/images/about/grandkids.jpg">
+  <img src="{{site.baseurl}}/images/about/farm.jpg">
 </div>
