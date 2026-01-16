@@ -45,17 +45,15 @@ Flags are made using Wikipedia images
     }
 </style>
 
-<!-- FLAGS GRID -->
+
 <div class="grid-container" id="grid_container"></div>
 
-<!-- SONGS GRID -->
+
 <h2>My Favorite Songs</h2>
 <div class="grid-container" id="songs_grid_container"></div>
 
 <script>
-    // ===============================
-    // FLAGS GRID
-    // ===============================
+  
     var container = document.getElementById("grid_container");
 
     var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
@@ -80,9 +78,7 @@ Flags are made using Wikipedia images
         container.appendChild(gridItem);
     }
 
-    // ===============================
-    // SONGS GRID (WIKIMEDIA COMMONS PHOTOS)
-    // ===============================
+    
     var songsContainer = document.getElementById("songs_grid_container");
 
     var favorite_songs = [
